@@ -165,25 +165,23 @@ export default function Editor() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center mt-8">
-            <div className="">
-              <textarea
-                data-limit-row-len="true"
-                rows={20}
-                cols={27}
-                wrap="hard"
-                className="md:text-2xl text-md p-2 font-sans font-light outline-none"
-                onChange={handleChange}
-                onBlur={handleChange}
-                onClick={handleChange}
-                ref={textAreaRef}
-                placeholder={textAreaPlaceholder}
-                defaultValue={initialTextAreaData}
-              />
-            </div>
+          <div className="flex justify-center px-6 mt-8">
+            <textarea
+              data-limit-row-len="true"
+              rows={20}
+              cols={27}
+              wrap="hard"
+              className="md:text-2xl text-md p-2 font-sans font-light outline-none"
+              onChange={handleChange}
+              onBlur={handleChange}
+              onClick={handleChange}
+              ref={textAreaRef}
+              placeholder={textAreaPlaceholder}
+              defaultValue={initialTextAreaData}
+            />
           </div>
         </main>
-        <footer className="h-8 mb-4">
+        <footer className=" h-8 mt-4 mb-4">
           <div>Built with ❤️ by Jan Ruettinger</div>
         </footer>
       </div>

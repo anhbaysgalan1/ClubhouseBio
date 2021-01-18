@@ -130,7 +130,7 @@ Amazon (Alexa), GOV.UK, McKinsey & Co.
               // data-row-maxlength="27
               // data-limit-row-len="true
               rows={20}
-              cols={27}
+              cols={25}
               readOnly
               className="md:text-2xl text-md p-2 font-sans font-light outline-none"
               // defaultValue={renderData(tabState)}

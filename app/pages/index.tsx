@@ -48,7 +48,7 @@ export default function Home() {
             </div>
             <div className="md:block hidden w-1/4 mx-auto">
               <img
-                src="/images/example_1.jpeg"
+                src="/images/example_jan.png"
                 alt="example of clubhouse bio"
                 width={350}
                 height={750}
