@@ -1,18 +1,14 @@
 import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main, Html, NextScript } from 'next/document';
 
 // extending classes in Javascript?! The official suggestion from the Next.js team:
 // https://github.com/zeit/next.js/blob/canary/examples/with-google-analytics/pages/_document.js
 export default class extends Document {
   render() {
     return (
-      <html>
+      <Html>
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-          />
           <script
             async
             defer
@@ -24,7 +20,7 @@ export default class extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

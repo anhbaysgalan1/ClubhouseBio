@@ -1,11 +1,20 @@
-import { useState, useRef } from 'react';
-import NavBar from '../components/NavBar';
-import Emojis from '../components/Emojis';
+import { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import api from '../../utils/db/api';
+import NavBar from '../../components/NavBar';
+import Emojis from '../../utils/Emojis';
 
 export default function Editor() {
   const [tabState, setTabState] = useState<number>(0);
   const [cursorPositionState, setCursorPositionState] = useState(0);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const [initialTextAreaData, setInitialTextAreaData] = useState<string>('');
+  const router = useRouter();
+
+  const saveChangeToDB = (event: any) => {
+    const id = router.query.id as string;
+    api.updateDocument(id, event.target.value);
+  };
 
   const EmojiNameMapper: string[] = [
     'most_useful',
@@ -19,6 +28,7 @@ export default function Editor() {
 
   const handleChange = (event: any) => {
     setCursorPositionState(event.target.selectionStart);
+    saveChangeToDB(event);
   };
 
   const insertMyText = (text: string) => {
@@ -39,6 +49,16 @@ export default function Editor() {
     textAreaRef.current.value =
       textBeforeCursorPosition + textToInsert + textAfterCursorPosition;
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await api.getDocument(router.query.id as string);
+      if (data !== undefined) {
+        setInitialTextAreaData(data.text);
+      }
+    };
+    fetchData();
+  }, [router]);
 
   return (
     <div className="sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
@@ -118,6 +138,7 @@ export default function Editor() {
                   <div className="flex flex-wrap w-4/5">
                     {Emojis[EmojiNameMapper[tabState]].map((element: any) => (
                       <button
+                        key={element.id}
                         type="button"
                         className="mr-2 text-5xl"
                         onClick={() => {
@@ -147,6 +168,7 @@ export default function Editor() {
                 onClick={handleChange}
                 ref={textAreaRef}
                 placeholder={textAreaPlaceholder}
+                defaultValue={initialTextAreaData}
               />
             </div>
           </div>

@@ -1,9 +1,24 @@
 // import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import NavBar from '../components/NavBar';
 
+import api from '../utils/db/api';
+
 export default function Home() {
+  const router = useRouter();
+
+  const handleClick = async () => {
+    try {
+      const id = await api.getId();
+      if (id !== undefined) {
+        router.push(`/editor/${id}`);
+      }
+    } catch {
+      console.log('DB Error occured');
+    }
+  };
   return (
     <div className="sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
       <div className="flex flex-col justify-between min-h-screen">
@@ -48,16 +63,17 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-16 text-center">
-            <Link href="/editor">
-              <a href="/">
-                <button
-                  type="button"
-                  className="mr-8 inline-flex items-center px-3 py-1.5 text-xl font-medium rounded-full shadow-sm text-white bg-clubhouse-button1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Click here to open the bio editor
-                </button>
-              </a>
-            </Link>
+            {/* <Link href="/editor">
+              <a href="/"> */}
+            <button
+              type="button"
+              className="mr-8 inline-flex items-center px-3 py-1.5 text-xl font-medium rounded-full shadow-sm text-white bg-clubhouse-button1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              onClick={handleClick}
+            >
+              Click here to open the bio editor
+            </button>
+            {/* </a>
+            </Link> */}
           </div>
         </main>
         <footer className="h-8 mb-4">
