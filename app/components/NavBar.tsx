@@ -7,7 +7,7 @@ function NavBar() {
         <div className="flex-1 min-w-0">
           <Link href="/">
             <a href="/">
-              <h2 className="sm:text-xl sm:truncate text-2xl font-semibold leading-7 text-gray-900">
+              <h2 className="sm:text-xl sm:block sm:truncate md:text-2xl hidden font-semibold leading-7 text-gray-900">
                 Clubhouse Bio Creator
               </h2>
             </a>

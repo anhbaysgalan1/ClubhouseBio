@@ -24,8 +24,7 @@ export default function Editor() {
     'travel',
   ];
 
-  const textAreaPlaceholder = `asdasdasd asdasdasd`;
-
+  const textAreaPlaceholder = `Hi I am Elon and I like 🚀.`;
   const handleChange = (event: any) => {
     setCursorPositionState(event.target.selectionStart);
     saveChangeToDB(event);
@@ -61,7 +60,7 @@ export default function Editor() {
   }, [router]);
 
   return (
-    <div className="sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
+    <div className="lg:px-8 max-w-screen-xl px-6 mx-auto">
       <div className="flex flex-col justify-between min-h-screen">
         <header className="">
           <NavBar />
@@ -70,6 +69,19 @@ export default function Editor() {
           <h1 className="p-2 text-4xl font-semibold text-center text-gray-900">
             Bio Editor
           </h1>
+          <div className="md:block hidden mt-4 text-2xl">
+            <div>
+              1. When you are happy with your bio, send the link (url) to your
+              phone.
+            </div>
+            <div>
+              2. Open the link, and copy and paste your bio to Clubhouse.
+            </div>
+          </div>
+          <div className="sm:hidden block mt-4 text-2xl">
+            <div>Almost done 🥳 now copy and paste your bio to Clubhouse!</div>
+          </div>
+
           <div>
             <div>
               <div className="md:block hidden mt-16">
@@ -156,13 +168,11 @@ export default function Editor() {
           <div className="flex justify-center mt-8">
             <div className="">
               <textarea
-                // data-row-maxlength={20}
                 data-limit-row-len="true"
-                // maxLength={10}
                 rows={20}
                 cols={27}
                 wrap="hard"
-                className="p-2 text-2xl outline-none"
+                className="md:text-2xl text-md p-2 font-sans font-light outline-none"
                 onChange={handleChange}
                 onBlur={handleChange}
                 onClick={handleChange}

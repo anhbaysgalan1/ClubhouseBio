@@ -4,6 +4,11 @@ import NavBar from '../components/NavBar';
 export default function ExampleBios() {
   const [tabState, setTabState] = useState(0);
 
+  const handleSelectChange = (event) => {
+    console.log(event.target.value);
+    setTabState(event.target.value);
+  };
+
   const example0 = `📍Berlin
 Politics on Instagram.
 Interested in startups.
@@ -39,11 +44,11 @@ Amazon (Alexa), GOV.UK, McKinsey & Co.
 
   const renderData = (param: number) => {
     switch (param) {
-      case 0:
+      case '0':
         return example0;
-      case 1:
+      case '1':
         return example1;
-      case 2:
+      case '2':
         return example2;
       default:
         return example0;
@@ -51,7 +56,7 @@ Amazon (Alexa), GOV.UK, McKinsey & Co.
   };
 
   return (
-    <div className="sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
+    <div className="sm:px-6 lg:px-8 container max-w-screen-xl px-4 mx-auto">
       <div className="flex flex-col justify-between min-h-screen">
         <header className="">
           <NavBar />
@@ -62,7 +67,7 @@ Amazon (Alexa), GOV.UK, McKinsey & Co.
           </h1>
           <div>
             <div>
-              <div className="sm:hidden">
+              <div className="sm:hidden sm:px-5">
                 <label htmlFor="tabs" className="sr-only">
                   Select a tab
                 </label>
@@ -70,11 +75,19 @@ Amazon (Alexa), GOV.UK, McKinsey & Co.
                   id="tabs"
                   name="tabs"
                   className="focus:ring-indigo-500 focus:border-indigo-500 block w-full border-gray-300 rounded-md"
+                  onChange={handleSelectChange}
                 >
-                  <option>My Account</option>
-                  <option>Company</option>
-                  <option selected>Team Members</option>
-                  <option>Billing</option>
+                  <option value={0} selected={tabState === 0}>
+                    {' '}
+                    clean / ⚫
+                  </option>
+                  <option value={1} selected={tabState === 1}>
+                    {' '}
+                    fresh / 📚
+                  </option>
+                  <option value={2} selected={tabState === 2}>
+                    creative / 🥳🔝😎
+                  </option>
                 </select>
               </div>
               <div className="sm:block hidden mt-16 text-center">
@@ -113,21 +126,20 @@ Amazon (Alexa), GOV.UK, McKinsey & Co.
               </div>
             </div>
           </div>
-          <div className="flex justify-center mt-8">
-            <div>
-              <textarea
-                // data-row-maxlength="27"
-                // data-limit-row-len="true"
-                rows={20}
-                cols={27}
-                readOnly
-                className="p-2 font-sans text-2xl font-light outline-none"
-                value={renderData(tabState)}
-              />
-            </div>
+          <div className=" mt-8 text-center">
+            <textarea
+              // data-row-maxlength="27
+              // data-limit-row-len="true
+              rows={20}
+              cols={27}
+              readOnly
+              className="md:text-2xl text-md p-2 font-sans font-light outline-none"
+              // defaultValue={renderData(tabState)}
+              value={renderData(tabState)}
+            />
           </div>
         </main>
-        <footer className="h-8 mb-4">
+        <footer className="h-8 mt-4 mb-4">
           <div>Built with ❤️ by Jan Ruettinger</div>
         </footer>
       </div>

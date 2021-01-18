@@ -17,17 +17,17 @@ export default function Home() {
     }
   };
   return (
-    <div className="sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
+    <div className="lg:px-8 max-w-screen-xl px-6 mx-auto">
       <div className="flex flex-col justify-between min-h-screen">
         <header>
           <NavBar />
         </header>
         <main className="mt-14 flex-1">
-          <h1 className="p-2 text-4xl font-semibold text-center text-gray-900">
+          <h1 className=" md:text-4xl p-2 text-2xl font-semibold text-center text-gray-900">
             Create an engaging clubhouse bio in less than 3 minutes
           </h1>
           <div className="flex">
-            <div className="w-1/2">
+            <div className="sm:w-full md:w-1/2">
               <h2 className="p-2 mt-8 text-3xl font-semibold text-center text-gray-900">
                 How does it work?
               </h2>
@@ -46,7 +46,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="w-1/4 mx-auto">
+            <div className="md:block hidden w-1/4 mx-auto">
               <img
                 src="/images/example_1.jpeg"
                 alt="example of clubhouse bio"
@@ -70,7 +70,7 @@ export default function Home() {
             </Link> */}
           </div>
         </main>
-        <footer className="h-8 mb-4">
+        <footer className="h-8 mt-4 mb-4">
           <div>Built with ❤️ by Jan Ruettinger</div>
         </footer>
       </div>

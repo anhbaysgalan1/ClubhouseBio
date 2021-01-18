@@ -69,6 +69,9 @@ module.exports = {
           orange: '#E9BC3E',
         },
       },
+      maxWidth: (theme) => ({
+        'screen-xl': theme('screens.xl'),
+      }),
     },
   },
   variants: {},
