@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import api from '../../utils/db/api';
 import NavBar from '../../components/NavBar';
 import Emojis from '../../utils/Emojis';
@@ -10,6 +11,7 @@ export default function Editor() {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [initialTextAreaData, setInitialTextAreaData] = useState<string>('');
   const router = useRouter();
+  const [copyStatus, setCopyStatus] = useState(false);
 
   const saveChangeToDB = (event: any) => {
     const id = router.query.id as string;
@@ -80,6 +82,12 @@ export default function Editor() {
           </div>
           <div className="sm:hidden block mt-4 text-2xl">
             <div>Almost done 🥳 now copy and paste your bio to Clubhouse!</div>
+            <CopyToClipboard text={textAreaRef.current?.value}
+          onCopy={() => setCopyStatus(true)}>
+            <div className="text-center">
+          <button type="button" className="bg-clubhouse-button1 text-white rounded-md p-4">{copyStatus ? 'Copied!' : 'Copy bio'}</button>
+            </div>
+        </CopyToClipboard>
           </div>
 
           <div>

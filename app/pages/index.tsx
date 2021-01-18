@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+
 import NavBar from '../components/NavBar';
 
 import api from '../utils/db/api';
