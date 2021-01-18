@@ -4,9 +4,8 @@ import NavBar from '../components/NavBar';
 export default function ExampleBios() {
   const [tabState, setTabState] = useState(0);
 
-  const handleSelectChange = (event) => {
-    console.log(event.target.value);
-    setTabState(event.target.value);
+  const handleSelectChange = (event: any) => {
+    setTabState(Number(event.target.value));
   };
 
   const example0 = `📍Berlin
@@ -44,11 +43,11 @@ Amazon (Alexa), GOV.UK, McKinsey & Co.
 
   const renderData = (param: number) => {
     switch (param) {
-      case '0':
+      case 0:
         return example0;
-      case '1':
+      case 1:
         return example1;
-      case '2':
+      case 2:
         return example2;
       default:
         return example0;
