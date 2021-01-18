@@ -13,7 +13,7 @@ export default function Home() {
         router.push(`/editor/${id}`);
       }
     } catch {
-      // console.log('DB Error occured');
+      // console.log('DB Error occured ');
     }
   };
   return (
