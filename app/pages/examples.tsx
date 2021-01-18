@@ -125,12 +125,12 @@ Amazon (Alexa), GOV.UK, McKinsey & Co.
               </div>
             </div>
           </div>
-          <div className=" mt-8 text-center">
+          <div className="mt-8 text-center">
             <textarea
               // data-row-maxlength="27
               // data-limit-row-len="true
               rows={20}
-              cols={25}
+              cols={34}
               readOnly
               className="md:text-2xl text-md p-2 font-sans font-light outline-none"
               // defaultValue={renderData(tabState)}
