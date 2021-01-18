@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useRouter } from 'next/router';
 import NavBar from '../components/NavBar';
 
@@ -16,7 +16,7 @@ export default function Home() {
         router.push(`/editor/${id}`);
       }
     } catch {
-      console.log('DB Error occured');
+      // console.log('DB Error occured');
     }
   };
   return (
