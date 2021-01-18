@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
 import api from '../../utils/db/api';
 import NavBar from '../../components/NavBar';
 import Emojis from '../../utils/Emojis';
@@ -31,6 +30,17 @@ export default function Editor() {
     setCursorPositionState(event.target.selectionStart);
     saveChangeToDB(event);
   };
+
+  const handleCopy = () => {
+    if(textAreaRef.current){
+      textAreaRef.current.select();
+      document.execCommand('copy');
+      setCopyStatus(true);
+      textAreaRef.current.selectionStart = 0;
+      textAreaRef.current.selectionEnd = 0;
+    }
+    setTimeout(() => {setCopyStatus(false)},5000);
+  }
 
   const insertMyText = (text: string) => {
     if (textAreaRef.current === null) {
@@ -82,12 +92,15 @@ export default function Editor() {
           </div>
           <div className="sm:hidden block mt-4 text-2xl">
             <div>Almost done 🥳 now copy and paste your bio to Clubhouse!</div>
-            <CopyToClipboard text={String(textAreaRef.current?.value)}
+            {/* <CopyToClipboard text={String(textAreaRef.current?.value)}
           onCopy={() => setCopyStatus(true)}>
             <div className="text-center">
           <button type="button" className="bg-clubhouse-button1 text-white rounded-md p-4">{copyStatus ? 'Copied!' : 'Copy bio'}</button>
             </div>
-        </CopyToClipboard>
+        </CopyToClipboard> */}
+        <div className="text-center">
+          <button type="button" onClick={handleCopy}className="bg-clubhouse-button1 text-white rounded-md p-4">{copyStatus ? 'Copied!' : 'Copy bio'}</button>
+        </div>
           </div>
 
           <div>
