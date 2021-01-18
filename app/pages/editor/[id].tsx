@@ -82,7 +82,7 @@ export default function Editor() {
           </div>
           <div className="sm:hidden block mt-4 text-2xl">
             <div>Almost done 🥳 now copy and paste your bio to Clubhouse!</div>
-            <CopyToClipboard text={textAreaRef.current?.value}
+            <CopyToClipboard text={String(textAreaRef.current?.value)}
           onCopy={() => setCopyStatus(true)}>
             <div className="text-center">
           <button type="button" className="bg-clubhouse-button1 text-white rounded-md p-4">{copyStatus ? 'Copied!' : 'Copy bio'}</button>
