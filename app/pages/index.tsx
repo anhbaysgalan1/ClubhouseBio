@@ -49,10 +49,10 @@ export default function Home() {
           </div>
           <div className="mt-16 text-center">
             <Link href="/editor">
-              <a>
+              <a href="/">
                 <button
                   type="button"
-                  className="mr-8 inline-flex items-center px-3 py-1.5 border border-transparent text-xl font-medium rounded-full shadow-sm text-white bg-clubhouse-button1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="mr-8 inline-flex items-center px-3 py-1.5 text-xl font-medium rounded-full shadow-sm text-white bg-clubhouse-button1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Click here to open the bio editor
                 </button>

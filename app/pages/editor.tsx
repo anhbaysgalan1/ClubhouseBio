@@ -3,11 +3,11 @@ import NavBar from '../components/NavBar';
 import Emojis from '../components/Emojis';
 
 export default function Editor() {
-  const [tabState, setTabState] = useState(0);
+  const [tabState, setTabState] = useState<number>(0);
   const [cursorPositionState, setCursorPositionState] = useState(0);
-  const textAreaRef = useRef(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
-  const EmojiNameMapper = [
+  const EmojiNameMapper: string[] = [
     'most_useful',
     'creative',
     'science',
@@ -19,10 +19,13 @@ export default function Editor() {
 
   const handleChange = (event: any) => {
     setCursorPositionState(event.target.selectionStart);
-    console.log(event.target.rows);
   };
 
   const insertMyText = (text: string) => {
+    if (textAreaRef.current === null) {
+      return;
+    }
+
     const textToInsert = text;
     const cursorPosition = cursorPositionState;
     const textBeforeCursorPosition = textAreaRef.current.value.substring(
@@ -100,6 +103,7 @@ export default function Editor() {
                   <a
                     href="https://emojipedia.org"
                     target="_blank"
+                    rel="noreferrer"
                     className="ml-auto"
                   >
                     <button
@@ -112,7 +116,7 @@ export default function Editor() {
                 </nav>
                 <div className="mt-4">
                   <div className="flex flex-wrap w-4/5">
-                    {Emojis[EmojiNameMapper[tabState]].map((element) => (
+                    {Emojis[EmojiNameMapper[tabState]].map((element: any) => (
                       <button
                         type="button"
                         className="mr-2 text-5xl"

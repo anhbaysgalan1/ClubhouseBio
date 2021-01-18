@@ -37,16 +37,13 @@ Amazon (Alexa), GOV.UK, McKinsey & Co.
   ⛷️Sport junkie - Former national competitive skier
 `;
 
-  const renderData = (param) => {
+  const renderData = (param: number) => {
     switch (param) {
       case 0:
-        console.log('asd');
         return example0;
       case 1:
-        console.log('bb');
         return example1;
       case 2:
-        console.log('cc');
         return example2;
       default:
         return example0;

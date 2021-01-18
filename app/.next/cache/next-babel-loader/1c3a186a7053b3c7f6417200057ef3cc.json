@@ -1,1 +1,0 @@
-{"ast":null,"code":"","map":{"version":3,"sources":[],"names":[],"mappings":"","sourcesContent":["// hooks/useAuth.ts\nimport { useContext } from 'react';\nimport AuthContext from '../components/auth/AuthContext'\n\n// const useAuth = () => useContext(AuthContext);\n// export default useAuth"]},"metadata":{},"sourceType":"module"}
