@@ -19,10 +19,10 @@ export default function Home() {
   return (
     <div className="sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
       <div className="flex flex-col justify-between min-h-screen">
-        <header className="">
+        <header>
           <NavBar />
         </header>
-        <main className="mt-14">
+        <main className="mt-14 flex-1">
           <h1 className="p-2 text-4xl font-semibold text-center text-gray-900">
             Create an engaging clubhouse bio in less than 3 minutes
           </h1>
@@ -50,8 +50,8 @@ export default function Home() {
               <img
                 src="/images/example_1.jpeg"
                 alt="example of clubhouse bio"
-                width={150}
-                height={350}
+                width={350}
+                height={750}
                 className="border-2 border-gray-500"
               />
             </div>
