@@ -1,6 +1,3 @@
-// import { useState } from 'react';
-import Image from 'next/image';
-// import Link from 'next/link';
 import { useRouter } from 'next/router';
 import NavBar from '../components/NavBar';
 
@@ -26,9 +23,6 @@ export default function Home() {
           <NavBar />
         </header>
         <main className="mt-14">
-          {/* <div className="font-courier p-2 text-2xl text-white bg-gray-500">
-            "Hello"
-          </div> */}
           <h1 className="p-2 text-4xl font-semibold text-center text-gray-900">
             Create an engaging clubhouse bio in less than 3 minutes
           </h1>
@@ -53,12 +47,12 @@ export default function Home() {
               </div>
             </div>
             <div className="w-1/4 mx-auto">
-              <Image
+              <img
                 src="/images/example_1.jpeg"
-                alt="Picture of the author"
-                layout="responsive"
-                width={100}
-                height={250}
+                alt="example of clubhouse bio"
+                width={150}
+                height={350}
+                className="border-2 border-gray-500"
               />
             </div>
           </div>
